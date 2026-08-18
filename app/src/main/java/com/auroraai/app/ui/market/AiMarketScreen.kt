@@ -29,7 +29,7 @@ import com.auroraai.app.data.SettingsStore
 @Composable
 fun AiMarketScreen(settings: SettingsStore, navController: NavHostController) {
     var multiSelectMode by remember { mutableStateOf(false) }
-    var selectedIds by remember { mutableStateOf(settings.combinedModelIds) }
+    var selectedIds by remember { mutableStateOf<Set<String>>(settings.combinedModelIds) }
     var keyDialogModel by remember { mutableStateOf<AiModel?>(null) }
     var activeModel by remember { mutableStateOf(settings.activeModelId) }
 
@@ -45,7 +45,7 @@ fun AiMarketScreen(settings: SettingsStore, navController: NavHostController) {
                 actions = {
                     if (multiSelectMode) {
                         TextButton(onClick = {
-                            settings.combinedModelIds = selectedIds
+                            settings.combinedModelIds = selectedIds.toMutableSet()
                             settings.combineModeEnabled = selectedIds.size > 1
                             multiSelectMode = false
                         }) { Text("Bitti") }
