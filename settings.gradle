@@ -1,0 +1,2 @@
+rootProject.name = "AuroraAI"
+include ':app'

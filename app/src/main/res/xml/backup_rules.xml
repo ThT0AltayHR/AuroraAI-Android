@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 11 ve altı için yedekleme kuralları. -->
+<full-backup-content>
+    <exclude domain="sharedpref" path="auroraai_secure_prefs.xml" />
+</full-backup-content>
